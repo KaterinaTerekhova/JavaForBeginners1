@@ -316,6 +316,31 @@ public class HW8 {
         return tensOnes;
     }
 
+    /**
+     * Написать метод, который принимает массив из 11 целых положительных чисел от 0 до 9,
+     * и возвращает массив, который содержит номер телефона, состоящий из этих чисел,  и название страны, которой номер принадлежит.
+     * Например:
+     * method({1, 8, 0, 0, 1, 2, 3, 4, 5, 6, 7}) -> {“1(800)123-45-67”, “USA”}
+     */
+
+    public static String[] getPhoneNumber(int[] array){
+        if(array == null || array.length == 0){
+            return null;
+        }
+        String[] phoneNumber = new String[2];
+        for(int i = 0; i < array.length; i++){
+            if(array[i] >= 0){
+                phoneNumber[0] = " " + "\"" + array[0] + "(" + array[1] + array[2] + array[3] + ")" + array[4] + array[5]
+                    + array[6] + "-" + array[7] + array[8] + "-" + array[9] + array[10] + "\"" ; //на
+            }
+            if(array[i] == 1){
+                phoneNumber[1] = "\"USA\"";
+            }
+
+        }
+        return phoneNumber;
+    }
+
 
 
 
@@ -675,6 +700,10 @@ public class HW8 {
 
         Task();
         System.out.println(Arrays.toString(tensOnesArray(array)));
+
+        Task();
+        int[] array6 = {1, 8, 0, 0, 1, 2, 3, 4, 5, 6, 7};
+        System.out.println(Arrays.toString(getPhoneNumber(array6)));
 
 
 
