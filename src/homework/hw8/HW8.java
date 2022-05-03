@@ -341,6 +341,38 @@ public class HW8 {
         return phoneNumber;
     }
 
+    /**
+     * Написать метод, который принимает массив целых положительных чисел больше 0, и возвращает массив уникальных чисел.
+     */
+    public static int[] getUnikalMassive(int[]a){   //{10,5,2,4,5,10,1,5,10}
+        int[] unikal = {};
+        int count = 0;
+        for(int i = 0; i < a.length; i++){
+            for(int j = i + 1; j < a.length; j++){
+                if(a[i] == a[j]){
+                    a[j] = 0; //получаем массив с 0 {10,5,2,4,0,0,1,0,0}
+                }
+            }
+        }
+        for(int i = 0; i < a.length; i++){
+            if(a[i] == 0){
+                count++;
+            }
+        }
+        unikal = new int[a.length - count];
+        count = 0;
+        for(int i = 0; i < a.length; i++){
+            if(a[i] != 0){
+                unikal[count] = a[i];
+                count++;
+            }
+        }
+        return unikal;
+    }
+
+
+
+
 
 
 
@@ -704,6 +736,10 @@ public class HW8 {
         Task();
         int[] array6 = {1, 8, 0, 0, 1, 2, 3, 4, 5, 6, 7};
         System.out.println(Arrays.toString(getPhoneNumber(array6)));
+
+        Task();
+        int[] uni = {10,5,2,4,5,10,1,5,10};
+        System.out.println(Arrays.toString(getUnikalMassive(uni)));
 
 
 
