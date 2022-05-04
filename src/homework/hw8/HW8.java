@@ -394,16 +394,6 @@ public class HW8 {
         return new int[]{};
     }
 
-
-
-
-
-
-
-
-
-
-
     //Checking
 
     public static int[] getRandomFromMines(int[] get) {
@@ -578,21 +568,6 @@ public class HW8 {
         return arr3;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
 
         Task();
@@ -765,10 +740,6 @@ public class HW8 {
         int[] uni = {10,5,2,4,5,10,1,5,10};
         System.out.println(Arrays.toString(getUnikalMassive(uni)));
 
-
-
-
-
         //Checking
 
         System.out.println("+++++++++++++++++++++++++++");
@@ -847,9 +818,6 @@ public class HW8 {
         System.out.println(Arrays.toString(sortArray(intArray)));
         System.out.println("+++++++++++++++++++++++++++");
         System.out.println(Arrays.toString(sortArrayAlgorithm(intArray)));
-
-
-
 
     }
 }
