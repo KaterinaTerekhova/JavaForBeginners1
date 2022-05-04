@@ -389,7 +389,7 @@ public class HW8 {
                     }
                 }
             }
-            return new int[]{array.length - n; n};
+            return new int[]{array.length - n, n};
         }
         return new int[]{};
     }
@@ -567,6 +567,78 @@ public class HW8 {
         }
         return arr3;
     }
+
+    /**
+     *Написать алгоритм KthLargest, который принимает на вход массив целых чисел и число k,
+     *  и возвращает k-тый максимальный элемент.
+     * Test Data:
+     * ({4, 3, 7, 12, 5, 2, 9, 4, 12}, 3) → 9
+     *  (12 и 12 - первый и второй самые большие элементы)
+     */
+
+      public static int kthLargest(int[] a, int k) {
+            for (int bypass = 0; bypass < a.length - 1; bypass++) { //sorting
+                boolean already_sorted = true;
+                for (int i = 0; i < a.length - 1 - bypass; i++) {
+                    if (a[i] > a[i + 1]) {
+                        int tempSort = a[i];
+                        a[i] = a[i + 1];
+                        a[i + 1] = tempSort;
+                        already_sorted = false;
+                    }
+                }
+                if (already_sorted) {
+                    break;
+                }
+            };
+            return a[a.length - k];
+        }
+
+    /**
+     * Написать алгоритм NegativeOnTheRight, который принимает на вход массив целых чисел, и
+     * возвращает массив,  в котором все негативные числа находятся во второй половине массива
+     * Test Data:
+     * {4, -3, 7, -12, 5, -2, 9, 4, 12} → {4, 7, 5, 9, 4, 12, -3, -12, -2}
+        */
+
+        public static int[] negativeOnTheRight(int[] a) {
+            int  posCount = 0, negCount = 0;
+            int[] posTemp = new int[a.length], negTemp = new int[a.length];
+            for (int i = 0; i < a.length; i++) {
+                if (a[i] > 0) {
+                    posTemp[posCount] = a[i];
+                    posCount++;
+                } else if (a[i] < 0) {
+                    negTemp[negCount] = a[i];
+                    negCount++;
+                } else if (a[i] == 0) {
+                    continue;
+                }
+            }
+            int[] result = new int[posCount + negCount];
+            int resultCount = 0;
+            for (int i = 0; i < posCount; i++) {
+                result[resultCount++] = posTemp[i];
+            }
+            for (int i = 0; i < negCount; i++) {
+                result[resultCount++] = negTemp[i];
+            }
+            return result;
+        }
+
+    /**
+     * 14.	Написать алгоритм SumOfTwo, который принимает на вход массив целых чисел,
+     * и число n. Алгоритм  возвращает пары элементов, которые в сумме дают число n.
+     * Test Data:
+     * ({4, 3, 7, 12, 5, 2, 9, 4, 12}, 12)  → {{3, 9}, {7, 5}}
+     */
+
+
+
+
+
+
+
 
     public static void main(String[] args) {
 
@@ -818,6 +890,19 @@ public class HW8 {
         System.out.println(Arrays.toString(sortArray(intArray)));
         System.out.println("+++++++++++++++++++++++++++");
         System.out.println(Arrays.toString(sortArrayAlgorithm(intArray)));
+
+
+        System.out.println("+++++++++++++++++++++++++++");
+        int[]aaa = {4, 3, 7, 12, 5, 2, 9, 4, 12};
+        int k = 3;
+        System.out.println(kthLargest(aaa,k));
+
+        System.out.println("+++++++++++++++++++++++++++");
+        int[]aaaa = {4, -3, 7, -12, 5, -2, 9, 4, 12};
+
+        System.out.println(Arrays.toString(negativeOnTheRight(aaaa)));
+
+
 
     }
 }
