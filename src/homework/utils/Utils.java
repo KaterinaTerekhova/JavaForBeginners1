@@ -11,4 +11,10 @@ public class Utils {
             System.out.println("__________________________________________________");
         }
 
+    static int b = 1;
+    public static void Tasks() {
+        System.out.println("******************** " + "Task # " + b + " ********************");
+        b++;
+    }
+
 }
